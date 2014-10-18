@@ -64,8 +64,8 @@ public class Calculator {
 
 		return number.split(",|\n");
 	}
-     
-    private static int sum(String[] number){
+
+	private static int sum(String[] number){
     	int total = 0;
     	for(int i = 0; i < number.length; i++){
 				total += toInt(number[i]);
