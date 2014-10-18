@@ -65,10 +65,11 @@ public class CalculatorTest {
 		assertEquals(8, Calculator.add("//&\n2&2&1900&2&2"));
 	}
 
-	//@Test
-	//public void testNegativeAgain(){
-	//	assertEquals("Negatives not allowed: -1, -5", Calculator.add("-1,1,2,3,-5"));
-	//}									
+
+	@Test
+	public void testNegativeMessage(){
+		assertEquals("Negatives not allowed: -4, -2", Calculator.add("-4,2,2,-2,5"));
+	}									
 }
 
 
