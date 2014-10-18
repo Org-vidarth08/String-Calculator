@@ -53,7 +53,22 @@ public class CalculatorTest {
 	public void testNumberOverThousand(){
 		assertEquals(3, Calculator.add("1,2,1010"));
 		assertEquals(190, Calculator.add("//;\n10;80;90;2020;10;3456"));
-	}																
+	}	
+
+	@Test 
+	public void testMultipleDelimiterLength(){
+		assertEquals(7, Calculator.add("//[**]\n2**2**3"));
+	}
+
+	//@Test
+	//public void testMultipleAspects(){
+	//	assertEquals(10, Calculator.add("//&\n1&2&1900&3&4"));
+	//}
+
+	//@Test
+	//public void testNegativeAgain(){
+	//	assertEquals("Negatives not allowed: -1, -5", Calculator.add("-1,1,2,3,-5"));
+	//}									
 }
 
 

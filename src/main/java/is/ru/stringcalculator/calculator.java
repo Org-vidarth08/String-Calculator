@@ -18,6 +18,13 @@ public class Calculator {
 			negatives(text);
 		}
 
+		if(text.startsWith("//")){
+			if(text.matches("^(//.\n.*)$"))
+				return sum(splitNumbers(text));
+			if(text.matches("^(//\\[.+\\]\n.*)$"))
+				return (delimiterMultiLength(text));	
+		}
+
 		//delimiter getur verið "," eða new line
 		else if(text.contains(",") || text.contains("\n")){
 			return sum(splitNumbers(text));
@@ -69,6 +76,14 @@ public class Calculator {
 		}
 
 		return total;
+	}
+
+	private static int delimiterMultiLength(String number){
+		Matcher n = Pattern.compile("//\\[(.*)\\]\n(.*)").matcher(number);
+		n.matches();
+		String delimiter = n.group(1);
+		String restOfNumber = n.group(2);
+		return sum(restOfNumber.split(Pattern.quote(delimiter)));
 	}
 
 }	
