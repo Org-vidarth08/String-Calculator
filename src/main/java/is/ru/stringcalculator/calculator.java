@@ -29,8 +29,6 @@ public class Calculator {
 		else if(text.contains(",") || text.contains("\n")){
 			return sum(splitNumbers(text));
 		}
-		else
-			return 1;
 
 		return toInt(text);
 	} 
@@ -66,18 +64,18 @@ public class Calculator {
 	}
 
 	private static int sum(String[] number){
-    	int total = 0;
-    	for(int i = 0; i < number.length; i++){
-				total += toInt(number[i]);
-				//Check if the number is larger then 1000
-				if(toInt(number[i]) > 1000){
-					total -= toInt(number[i]);
-				}
+		int total = 0;
+		for(int i = 0; i < number.length; i++){
+			total += toInt(number[i]);
+			//Ath hvort tölur séu stærri en 1000
+			if(toInt(number[i]) > 1000){
+				total -= toInt(number[i]);
+			}
 		}
 
 		return total;
 	}
-
+	//Höndlar mis langa delimiters
 	private static int delimiterMultiLength(String number){
 		Matcher n = Pattern.compile("//\\[(.*)\\]\n(.*)").matcher(number);
 		n.matches();
