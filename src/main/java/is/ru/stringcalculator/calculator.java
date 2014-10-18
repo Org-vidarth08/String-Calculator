@@ -1,12 +1,17 @@
 package is.ru.stringcalculator;
 
+import java.util.ArrayList;
+import java.util.regex.*;
+
 public class Calculator {
 
-	public static int add (String text){
+	public static int add(String text){
 		if (text.equals("")){
 			return 0;
 		}
-		else if(text.contains(",")){
+
+		//delimiter getur verið "," eða new line
+		else if(text.contains(",") || text.contains("\n")){
 			return sum(splitNumbers(text));
 		}
 		else
@@ -17,8 +22,17 @@ public class Calculator {
 		return Integer.parseInt(number);
 	}
 
-	private static String[] splitNumbers(String numbers){
-		return numbers.split(",");
+	private static String[] splitNumbers(String number){
+		//athuga hvort delimiter byrjar á "//"
+		if(number.startsWith("//")){
+			Matcher m = Pattern.compile("//(.)\n(.*)").matcher(number);
+			m.matches();
+			String delimiter = m.group(1);
+			String restOfNumber = m.group(2);
+			return restOfNumber.split(delimiter);
+		}
+
+		return number.split(",|\n");
 	}
      
     private static int sum(String[] numbers){
@@ -26,6 +40,8 @@ public class Calculator {
 		for(String number : numbers){
 			total += toInt(number);
 		}
+
 		return total;
-    }
-}
+	}
+
+}	
