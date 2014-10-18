@@ -58,10 +58,14 @@ public class Calculator {
 		return number.split(",|\n");
 	}
      
-    private static int sum(String[] numbers){
+    private static int sum(String[] number){
     	int total = 0;
-		for(String number : numbers){
-			total += toInt(number);
+    	for(int i = 0; i < number.length; i++){
+				total += toInt(number[i]);
+				//Check if the number is larger then 1000
+				if(toInt(number[i]) > 1000){
+					total -= toInt(number[i]);
+				}
 		}
 
 		return total;

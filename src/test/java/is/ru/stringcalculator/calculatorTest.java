@@ -47,7 +47,13 @@ public class CalculatorTest {
     	catch (RuntimeException ex){
     		assertEquals("Negatives not allowed: -3,-4", ex.getMessage());
     	}
-    }																	
+    }	
+
+    @Test 
+	public void testNumberOverThousand(){
+		assertEquals(3, Calculator.add("1,2,1010"));
+		assertEquals(190, Calculator.add("//;\n10;80;90;2020;10;3456"));
+	}																
 }
 
 
