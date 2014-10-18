@@ -60,10 +60,10 @@ public class CalculatorTest {
 		assertEquals(7, Calculator.add("//[**]\n2**2**3"));
 	}
 
-	//@Test
-	//public void testMultipleAspects(){
-	//	assertEquals(10, Calculator.add("//&\n1&2&1900&3&4"));
-	//}
+	@Test
+	public void testDiffTypesInOne(){
+		assertEquals(8, Calculator.add("//&\n2&2&1900&2&2"));
+	}
 
 	//@Test
 	//public void testNegativeAgain(){
